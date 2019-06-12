@@ -10,7 +10,7 @@
 #       (https://labs.criteo.com/2014/09/kaggle-contest-dataset-now-available-academic-use/)
 #
 # After downloading dataset, run:
-#   getKaggleCriteoAdData(datafile="<path-to-train.txt>", o_filename=kaggle_processed.npz")
+#   getKaggleCriteoAdData(datafile="<path-to-train.txt>", o_filename=kaggle_processed")
 #
 # TODO: add support for other data-sets
 
@@ -123,7 +123,7 @@ def concatKaggleCriteoAdData(split, d_path, o_filename):
     print ("Concatenating multiple day kaggle data into %s.npz file" % str(d_path + o_filename))
 
     # load and concatenate data
-    for i in range(1, split + 1):
+    for i in range(1, split):
         with np.load(str(d_path) + "kaggle_day_{0}_processed.npz".format(i)) as data:
 
             if i == 1:
